@@ -12,13 +12,13 @@ function Publish() {
   });
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="min-h-screen flex flex-col ">
       <Appbar />
-      <div className="flex flex-col items-center p-14">
+      <div className="flex-grow flex flex-col items-center p-3 md:p-8 lg:p-14">
         <input
           type="text"
           autoFocus
-          className="focus:outline-none border-b p-4 max-w-screen-lg w-full text-6xl font-extrabold placeholder:text-slate-300"
+          className="focus:outline-none border-b p-4 max-w-screen-lg w-full text-3xl lg:text-6xl font-extrabold placeholder:text-slate-300"
           placeholder="Title"
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             setInputs((c) => ({

@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from '@prisma/extension-accelerate'
-import { sign } from 'hono/jwt';
+import { sign, verify } from 'hono/jwt';
 import { Hono } from "hono";
 import { signinInput, signupInput } from "@sarthkkharwal/medium-common";
 
@@ -85,6 +85,41 @@ try {
     })
 }
 
+})
+
+userRouter.get("/info", async (c) => {
+  let header = c.req.header("Authorization");
+
+  if(!header){
+    c.status(403);
+    return c.json({name: "", email: "", error: "No user found"})
+  }
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL
+  }).$extends(withAccelerate());
+
+  let token = await verify(header, c.env.JWT_PASS);
+
+  if(token.id && typeof token.id === 'string'){
+    let res = await prisma.user.findFirst({
+      where: {
+        id: token.id
+      },
+      select: {
+        email: true,
+        name: true,
+        catchphrase: true
+      }
+    })
+    return c.json({
+      name: res?.name,
+      email: res?.email,
+      catchphrase: res?.catchphrase
+    })
+  } else {
+    c.status(403);
+    return c.json({name: "", email: "", error: "No user found"}) 
+  }
 })
   
 

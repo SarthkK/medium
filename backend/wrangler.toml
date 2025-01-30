@@ -4,4 +4,4 @@ compatibility_date = "2025-01-04"
 
 [vars]
 DATABASE_URL = "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZjEyODNkMTYtMmEwMS00NDI2LTk2NTktNTBlZTgxODRhMzRhIiwidGVuYW50X2lkIjoiZjc3ZjU5NTE4OGY2OTY4NzljYmUyNTg2Y2RhNzMxNDk2MDE1ZmE2NDI0MmRkMzE5MmI4ZWEwMDk0NTQ1YmI4ZiIsImludGVybmFsX3NlY3JldCI6IjgxMmY5Nzg2LTQ0ZDEtNDEyZC04YzA0LTI4OWU2ZjkxNTQwMCJ9.i0sm67dq7g2elhuShCRs2CFfG5NhfMdI4OIdxpT5DV8"
-JWT_PASS = "password"
+JWT_PASS = "sarthkkharwalpass"

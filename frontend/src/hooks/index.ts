@@ -55,3 +55,21 @@ export const useBlogs = ()=>{
     },[]);
     return { loading, blogs }
 }
+
+export const useGetDetails = () => {
+    const [name,setName] = useState(" ");
+    const [email, setEmail] = useState(" ");
+    const [catchphrase, setCatchphrase] = useState(" ")
+    useEffect(()=>{
+        axios.get(`${BACKEND_URL}/api/v1/user/info`, {
+            headers: {
+                Authorization: localStorage.getItem('Authorization')
+            }
+        }).then((res)=>{
+            setName(res.data.name);
+            setEmail(res.data.email);
+            setCatchphrase(res.data.catchphrase)
+        })
+    },[]);
+    return {name, email, catchphrase};
+}

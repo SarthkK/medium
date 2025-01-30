@@ -31,7 +31,7 @@ function BlogCard({
         </div>
         <div>
           <p className="text-slate-500 text-thin">
-            {Math.ceil(content.length / 100)} minute(s) read
+            {Math.ceil(content.length / 750)} minute(s) read
           </p>
         </div>
       </div>

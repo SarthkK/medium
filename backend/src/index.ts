@@ -15,7 +15,7 @@ const app = new Hono<{
 }>();
 
 app.use("/*", cors({
-  origin: "https://blogapp-gilt-two.vercel.app"
+  origin: ["https://blogapp-gilt-two.vercel.app", "http://localhost:5173"]
 }))
 app.route("/api/v1/user", userRouter);
 app.route("/api/v1/blog", blogRouter);
