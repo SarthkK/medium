@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 interface BlogCardProps {
   id: string;
-  authorName: null | string;
+  authorName: string;
   title: string;
   content: string;
   publishedDate: string;
@@ -17,7 +17,7 @@ function BlogCard({
 }: BlogCardProps) {
   return (
     <Link to={`/blog/${id}`}>
-      <div className="border-b border-slate-200 max-w-xl p-5 flex flex-col gap-2 min-w-xl cursor-pointer">
+      <div className="border-b border-slate-200 max-w-xl p-5 flex flex-col gap-2 min-w-screen-xl cursor-pointer">
         <div className="flex items-center">
           <Avatar name={authorName} />
           <p className="font-extralight pl-1">
@@ -46,20 +46,15 @@ export function Avatar({
   name: string;
   size?: "small" | "big";
 }) {
+  const sizeClasses =
+    size === "small" ? "w-5 h-5 text-xs" : "w-10 h-10 text-lg";
+  const textSize = size === "small" ? "" : "lg";
   return (
     <div
-      className={`relative inline-flex items-center justify-center w-${
-        size === "small" ? 5 : 10
-      } h-${
-        size === "small" ? 5 : 10
-      } overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600`}
+      className={`relative inline-flex items-center justify-center ${sizeClasses} overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600`}
     >
-      <span
-        className={`text-${
-          size === "small" ? "xs" : "lg"
-        } text-gray-600 dark:text-gray-300`}
-      >
-        {name[0]}
+      <span className={`${textSize} text-gray-600 dark:text-gray-300`}>
+        {name[0].toUpperCase()}
       </span>
     </div>
   );

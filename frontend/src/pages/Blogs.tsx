@@ -1,12 +1,26 @@
 import { Appbar } from "../components/Appbar";
 import BlogCard from "../components/BlogCard";
+import BlogSkeleton from "../components/BlogSkeleton";
 import { useBlogs } from "../hooks";
 
 function Blogs() {
   const { loading, blogs } = useBlogs();
 
   if (loading) {
-    return <div>loading...</div>;
+    return (
+      <div>
+        <Appbar />
+        <div className="flex justify-center">
+          <div className="">
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+          </div>
+        </div>
+      </div>
+    );
   }
   return (
     <div>
@@ -16,6 +30,7 @@ function Blogs() {
           {blogs.map((blog, i) => {
             return (
               <BlogCard
+                key={i}
                 id={blog.id}
                 title={blog.title}
                 content={blog.content}
@@ -24,12 +39,6 @@ function Blogs() {
               />
             );
           })}
-          <BlogCard
-            title="How an ugly single page website makes 5000$ a month without affiliate marketing"
-            content="How an ugly single page website makes 5000$ a month without affiliate marketing How an ugly single page website makes 5000$ a month without affiliate marketing"
-            publishedDate="2nd Feb 2024"
-            authorName="Sarthk Kharwal"
-          />
         </div>
       </div>
     </div>

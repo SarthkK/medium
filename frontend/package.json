@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@sarthkkharwal/medium-common": "^1.0.0",
+    "@tiptap/pm": "^2.11.3",
+    "@tiptap/react": "^2.11.3",
+    "@tiptap/starter-kit": "^2.11.3",
     "axios": "^1.7.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
