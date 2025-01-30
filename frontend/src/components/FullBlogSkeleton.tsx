@@ -1,5 +1,3 @@
-import React from "react";
-
 function FullBlogSkeleton() {
   return (
     <div className="grid grid-cols-4 max-w-screen-xl w-full p-5 pt-12 animate-pulse">

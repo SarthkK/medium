@@ -1,7 +1,17 @@
 import { Blog } from "../hooks";
 import { Avatar } from "./BlogCard";
 
-function FullBlog({ blog }: { blog: Blog }) {
+function FullBlog({ blog }: { blog: Blog | undefined }) {
+  if (blog === undefined) {
+    blog = {
+      id: "",
+      title: "Error",
+      content: "",
+      author: {
+        name: "Unknown",
+      },
+    };
+  }
   return (
     <div className="grid grid-cols-4 max-w-screen-xl p-5 pt-12">
       <div className="col-span-3">

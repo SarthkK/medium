@@ -6,6 +6,7 @@ import FullBlogSkeleton from "../components/FullBlogSkeleton";
 
 function Blog() {
   const { id } = useParams();
+
   const { loading, blog } = useBlog({ id });
   if (loading) {
     return (
