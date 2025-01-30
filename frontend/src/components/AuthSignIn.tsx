@@ -36,9 +36,11 @@ function AuthSignIn() {
     }
   }
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center h-screen p-8">
       <div className="flex flex-col gap-2">
-        <p className="text-3xl font-extrabold px-10">Log into an Account</p>
+        <p className="text-3xl font-extrabold text-center px-10">
+          Log into an Account
+        </p>
         <p className="text-slate-400 text-center">
           Don't have an account?{" "}
           <Link to={"/signup"} className="underline">
